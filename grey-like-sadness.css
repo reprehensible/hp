@@ -1,3 +1,7 @@
+html {
+	height: 100%;
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -5,6 +9,7 @@ body {
 	font-family: 'Quattrocento Sans', sans-serif;
 	font-size: 12px;
 	color: #fee;
+	height: 100%;
 }
 
 a {
@@ -17,8 +22,14 @@ a:followed {
 h1 {
 	margin: 0px;
 	padding: 0px;
-	fontweight: normal;
+	font-weight: bold;
+	text-align: right;
+	font-size: 28px;
+	position: absolute;
+	left: -40px;
+	top: 300px;
 }
+
 div {
 	margin: 0px;
 	padding: 0px;
@@ -40,22 +51,27 @@ a:hover {
 .content {
 	margin: 0px auto;
 	margin-top: 0px;
-	width: 750px;
+	width: 750px;right;
+	border-left: 100px solid black;
+	position: relative;
+	height: 100%;
 }
-#banner {
-	background-color: #000;
-	padding: 250px 0px 0px 0px;
-	margin: 0px;
-	height: 310px;
-}
-#banner img {
-	margin: 0px;
-	padding: 0px;
-	border-bottom: 1px solid black;
-}
+
 .sub-block {
-	border: 1px solid black;
-	padding: 5px;
+	font-size: 23px;
+	padding: 0px;
 	margin: 0px;
 	background-color: #000;
+	height: 100%;
+	width: 620px;
+}
+.sub-block p {
+	text-align: right;
+	line-height: 23px;
+	margin: 0px;
+}
+
+#banner {
+	width: 350px;
+	float: left;
 }
