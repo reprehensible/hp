@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gianturl</title>
+	</head>
+	<body>
+		<p>Make your URL big and strong: <input id="inurl" type="textbox" name="inurl"><button onclick="makeUrl()">create</button></p>
+		<p id="outurl"></p>
+		<script>
+			var cipher = {
+				"a": "ay",
+				"b": "bee",
+				"c": "see",
+				"d": "dee",
+				"e": "eee",
+				"f": "eff",
+				"g": "gee",
+				"h": "aich",
+				"i": "eye",
+				"j": "jay",
+				"k": "kay",
+				"l": "ell",
+				"m": "ehm",
+				"n": "ehn",
+				"o": "ooh",
+				"p": "pee",
+				"q": "cue",
+				"r": "arr",
+				"s": "ess",
+				"t": "tee",
+				"u": "yew",
+				"v": "vee",
+				"w": "doubleyew",
+				"x": "ehx",
+				"y": "wie",
+				"z": "zee",
+				":": "colon",
+				"/": "slash",
+				"/": "slash",
+				"?": "questionmark",
+				"#": "hash",
+				"0": "zero",
+				"1": "one",
+				"2": "two",
+				"3": "three",
+				"4": "four",
+				"5": "five",
+				"6": "six",
+				"7": "seven",
+				"8": "eight",
+				"9": "nine",
+				"0": "zero",
+				" ": "space"
+			};
+			var decipher = function(c) {
+				var r = {};
+				Object.keys(c).forEach(function(x) {
+					r[c[x]] = x;
+				});
+				return r;
+			}(cipher);
+
+			var xcode = function(s, cipher, splitChar, joinChar) {
+				var out = [];
+				var a = s.split(splitChar);
+				a.forEach(function(x) {
+					out.push(cipher[x] || x);
+				});
+				return out.join(joinChar);
+			};
+			var encode = function(s) { return xcode(s, cipher, "", " "); };
+			var decode = function(s) { return xcode(s, decipher, " ", ""); };
+
+			var params = window.location.search.substring(1);
+			if (params) {
+				window.location = decode(decodeURIComponent(params));
+			}
+
+			var makeUrl = function() {
+				var url = 'http://jhereg.net/gianturl.html?' 
+				+ encodeURIComponent(encode(document.getElementById("inurl").value));
+				console.log(url);
+				var link = document.createElement("a");
+				link.href = url;
+				link.appendChild(document.createTextNode(url));
+				document.getElementById("outurl").innerHTML = "";
+				document.getElementById("outurl").appendChild(link);
+				return url;
+			};
+		</script>
+	</body>
+</html>
