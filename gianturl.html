@@ -2,6 +2,20 @@
 <html>
 	<head>
 		<title>gianturl</title>
+		<style>
+			body {
+				background-color: black;
+				font-family: sans-serif;
+			}
+			p {
+				padding: 1em;
+				border-radius: 5px;
+				background-color: #aaa;
+			}
+			a {
+				color: #fff;
+			}
+		</style>
 	</head>
 	<body>
 		<p>Make your URL big and strong: <input id="inurl" type="textbox" name="inurl"><button onclick="makeUrl()">create</button></p>
@@ -86,8 +100,8 @@
 			}
 
 			var makeUrl = function() {
-				//var url = 'http://jhereg.net/gianturl.html?' 
-				var url = 'gianturl.html?' 
+				var url = 'http://jhereg.net/gianturl.html?' 
+				//var url = 'gianturl.html?' 
 				+ encodeURIComponent(encode(document.getElementById("inurl").value));
 				console.log(url);
 				var link = document.createElement("a");
